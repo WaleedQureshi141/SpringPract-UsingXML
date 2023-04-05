@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+    <bean id="Student" class="org.example.Student">
+        <property name="id" value="0900"/>
+        <!-- 0900 doesnt get printed because id is int. Therefore we get 900 -->
+        <property name="name" value="Waleed Qureshi"/>
+        <property name="ph">
+            <list>
+                <ref bean="Phone1"/>
+                <ref bean="Phone2"/>
+                <ref bean="Phone3"/>
+            </list>
+        </property>
+        <property name="add" ref="Address"/>
+    </bean>
+
+    <bean id="Phone1" class="org.example.Phone">
+        <property name="mob" value="106870090"/>
+    </bean>
+    <bean id="Phone2" class="org.example.Phone">
+        <property name="mob" value="090078601"/>
+    </bean>
+    <bean id="Phone3" class="org.example.Phone">
+        <property name="mob" value="9255588888"/>
+    </bean>
+
+    <bean id="Address" class="org.example.Address">
+        <property name="city" value="Jackson Heights"/>
+        <property name="state" value="New York"/>
+        <property name="country" value="United States"/>
+        <property name="zipcode" value="11372"/>
+    </bean>
+
+</beans>
